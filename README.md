@@ -4,3 +4,8 @@
 
 Implementação de uma Deque (Double-Ended Queue) em Java. Permite inserção e remoção de elementos em ambas as extremidades da fila.
 
+---
+
+### Demonstração:
+
+<img width="40%" src="assets\terminal.png" />

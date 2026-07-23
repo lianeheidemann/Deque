@@ -1,26 +1,26 @@
 class Deque{
     private Produto produtos[];
-    int first;
-    int last;
-    int size;
-    
+    private int first;
+    private int last;
+    private int size;
+
     public Deque(int size) {
         this.produtos = new Produto[size];
         this.first = -1;
-        this.last = 0;
+        this.last = -1; // corrigido: estado inicial consistente com "vazio" (era 0)
         this.size = size;
     }
-  
+
     // Verifica se o Deque esta cheio
     boolean isFull() {
         return ((first == 0 && last == size-1) || first == last+1);
     }
-  
+
     // Verifica se o Deque esta vazio
     boolean isEmpty() {
         return (first == -1);
     }
-  
+
     // Insere um elemento na frente
     void inserirFront(Produto p) {
         // verifique se Deque está cheio ou não
@@ -44,7 +44,7 @@ class Deque{
         produtos[first] = p;
 
     }
-  
+
     // função para inserir elemento na extremidade traseira do Deque.
     void inserirLast(Produto key) {
         if (isFull()) {
@@ -67,9 +67,9 @@ class Deque{
         // inserir elemento atual em Deque
         produtos[last] = key ;
     }
-  
+
     // Exclui o elemento no front-end do Deque
-    void deletarFronElement() {
+    void deletarFrontElement() { // corrigido typo: era "deletarFronElement"
         // verifique se o Deque está vazio ou não
         if (isEmpty()) {
             System.out.println("Deque está vazio! \nNão há como deletar elemento!");
@@ -85,13 +85,13 @@ class Deque{
             if (first == size -1) {
                 first = 0;
             }// incrementar a frente em '1' para remover o valor atual da frente de Deque
-            else { 
+            else {
                 first = first+1;
             }
         }
         System.out.println("Primeiro elemento do Deque deletado!");
     }
-  
+
     // Excluir elemento na extremidade traseira do Deque
     void deletarLeastElement()
     {
@@ -114,7 +114,7 @@ class Deque{
     }
 
     // Retorna o elemento frontal de Deque
-    String getFirstElemente()
+    String getFirstElemento() // corrigido typo: era "getFirstElemente"
     {
         // verifique se o Deque está vazio ou não
         if (isEmpty()) {
@@ -124,7 +124,7 @@ class Deque{
             +produtos[first].getPreco()+", Quantidade:"
             +produtos[first].getQuantidade()+" ]";
     }
-  
+
     // função retornar elemento traseiro do Deque
     String getLeastElement()
     {
